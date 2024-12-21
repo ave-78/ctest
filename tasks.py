@@ -29,5 +29,5 @@ def post(res):
 @app.task
 def func():
     it = [(n, f"b{n}", f"c{n}") for n in range(10)]
-    pipe = chain(prep.s(), group(single(a, b, c) for (a, b, c) in it), post.s())
+    pipe = chain(prep.s(), group(single(a, b, c) for (a, b, c) in it)(), post.s())
     return pipe
